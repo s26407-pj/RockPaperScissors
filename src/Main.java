@@ -9,38 +9,38 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            String[] rps = {"r", "p", "s"};
+            String[] rps = {"k", "p", "n"};
             String computerMove = rps[new Random().nextInt(rps.length)];
 
             String playerMove;
 
             while (true) {
-                System.out.println("Podaj swój ruch: r(rock), p(paper) lub s(scissors)");
+                System.out.println("Podaj swój ruch: k(kamień), p(paper) lub n(nożyce)");
                 playerMove = scanner.nextLine();
-                if (playerMove.equals("r") || playerMove.equals("p") || playerMove.equals("s")) {
+                if (playerMove.equals("k") || playerMove.equals("p") || playerMove.equals("n")) {
                     break;
                 }
                 System.out.println(playerMove + " jest niewłaściwym ruchem!");
             }
-
-            System.out.println("Komputer zagrał: " + computerMove);
+            System.out.println("Zagrałeś: " + fullName(playerMove));
+            System.out.println("Komputer zagrał: " + fullName(computerMove));
 
             if (playerMove.equals(computerMove)) {
                 System.out.println("Remis!");
-            } else if (playerMove.equals("r")) {
+            } else if (playerMove.equals("k")) {
                 if (computerMove.equals("p")) {
                     System.out.println("Przegrałeś!");
-                } else if (computerMove.equals("s")) {
+                } else if (computerMove.equals("n")) {
                     System.out.println("Wygrałeś!");
                 }
             } else if (playerMove.equals("p")) {
-                if (computerMove.equals("s")) {
+                if (computerMove.equals("n")) {
                     System.out.println("Przegrałeś!");
-                } else if (computerMove.equals("r")) {
+                } else if (computerMove.equals("k")) {
                     System.out.println("Wygrałeś!");
                 }
-            } else if (playerMove.equals("s")) {
-                if (computerMove.equals("r")) {
+            } else if (playerMove.equals("n")) {
+                if (computerMove.equals("k")) {
                     System.out.println("Przegrałeś!");
                 } else if (computerMove.equals("p")) {
                     System.out.println("Wygrałeś!");
@@ -48,6 +48,26 @@ public class Main {
             }
 
             System.out.println("Chcesz zagrać jeszcze raz? (t/n)");
+            String playAgain = scanner.nextLine();
+
+            if (playAgain.equals("n")) {
+                break;
+            }
+        }
+    }
+
+    private static String fullName(String move) {
+        String moveToString;
+
+        if (move.equals("k")) {
+            moveToString = "kamień";
+            return moveToString;
+        } else if (move.equals("p")) {
+            moveToString = "papier";
+            return moveToString;
+        } else {
+            moveToString = "nożyce";
+            return moveToString;
         }
     }
 }
