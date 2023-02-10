@@ -15,7 +15,7 @@ public class Main {
             String playerMove;
 
             while (true) {
-                System.out.println("Podaj swój ruch: k(kamień), p(paper) lub n(nożyce)");
+                System.out.println("Podaj swój ruch: k (kamień), p (paper) lub n (nożyce)");
                 playerMove = scanner.nextLine();
                 if (playerMove.equals("k") || playerMove.equals("p") || playerMove.equals("n")) {
                     break;
